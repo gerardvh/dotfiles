@@ -1,4 +1,4 @@
-# holman does dotfiles
+# dotfiles
 
 Your dotfiles are how you personalize your system. These are mine.
 
@@ -80,9 +80,10 @@ and I'd love to get it fixed for you!
 
 ## thanks
 
-I forked [Ryan Bates](http://github.com/ryanb)' excellent
-[dotfiles](http://github.com/ryanb/dotfiles) for a couple years before the
-weight of my changes and tweaks inspired me to finally roll my own. But Ryan's
-dotfiles were an easy way to get into bash customization, and then to jump ship
-to zsh a bit later. A decent amount of the code in these dotfiles stem or are
-inspired from Ryan's original project.
+Forked from @holman's [dotfiles](https://github.com/holman/dotfiles) and lightly modified.
+
+## todo
+
+TODO: move bin directory from ~/bin to ~/.dotfiles/bin
+TODO: finish .vimrc
+TODO: finish consolidating other profile files into this repo
