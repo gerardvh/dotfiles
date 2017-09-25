@@ -1,0 +1,19 @@
+- TODO: rethink dotfiles for fish
+  - install homebrew
+    - link (or cd to) Brewfile
+    - `brew bundle`
+  - install fish
+  - install fisherman
+    - link fishfile
+    - `fisher`
+  - collect paths into .config/fish/conf.d/paths.fish
+    - run through files in folders and combine with comments (?)
+  - install ruby with rvm
+
+- TODO: setup a test for this somehow?
+  - New user?
+  - Install on mac mini?
+
+- TODO: create a 'destroy' function
+
+- TODO: rewrite 'aem-deploy-xx' scripts with options
