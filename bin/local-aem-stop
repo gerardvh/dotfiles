@@ -1,0 +1,3 @@
+#! /bin/bash
+
+docker-compose --file ~/bin/docker/local-aem.yml --project-name "aem" down
