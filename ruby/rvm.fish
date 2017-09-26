@@ -1,0 +1,2 @@
+# Ruby / RVM
+rvm default
