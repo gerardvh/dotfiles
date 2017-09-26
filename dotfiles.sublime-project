@@ -3,6 +3,16 @@
 	[
 		{
 			"path": "."
-		}
+		},
+    {
+      "path": "~/.local"
+    },
+    {
+      "path": "~/.config"
+    },
+    {
+      "name": "Paul's Dotfiles",
+      "path": "~/code/dotfiles-paulirish"
+    }
 	]
 }
