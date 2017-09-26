@@ -1,0 +1,9 @@
+#!/usr/bin/env fish
+
+# Set global variable for dotfiles root
+set -g $DOTS (~/.dotfiles)
+
+# Run install files for all files named 'install.sh'
+for file in (find -H $DOTFILES_ROOT -maxdepth 2 -name "install.sh")
+  sh -c $file
+end
