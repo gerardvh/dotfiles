@@ -17,3 +17,11 @@
 - TODO: create a 'destroy' function
 
 - TODO: rewrite 'aem-deploy-xx' scripts with options
+
+
+###thinking about fish stuff topically
+- Path stuff
+- Functions
+- prompt
+  - Forked version of Pure
+- plugins
