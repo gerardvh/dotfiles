@@ -1,3 +1,3 @@
-export GOPATH=/usr/local/opt/go/libexec/bin
-export PATH="$GOPATH/bin:$PATH"
+/usr/local/opt/go/libexec/bin
+"$GOPATH/bin:$PATH"
 
