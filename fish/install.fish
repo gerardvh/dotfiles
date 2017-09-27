@@ -5,11 +5,12 @@ if test -e $fisherman
   echo 'Fisherman is already installed. Remove $fisherman before re-installing.'
 else
   # Don't have fisherman installed, install it
-  curl -Lo $fisherman --create-dirs https://git.io.fisher
+  # curl -Lo $fisherman --create-dirs https://git.io.fisher
+  echo "About to install Fisherman to: $fisherman"
 end
 
 # Link fishfile
-link -sF $DOTFILES_ROOT/fish/fishfile ~/.config/fish/fishfile
+link -sF $DOTS/fish/fishfile ~/.config/fish/fishfile
 
 # Run fisherman install
 fisher
