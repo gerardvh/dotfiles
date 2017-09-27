@@ -1,3 +1,10 @@
+# Add fish folder if it doesn't exist
+mkdir -p ~/.config/fish
+
+# Symlink everything in the fish sibling-folder with the '.symlink' ext.
+
+
+
 # Install fisherman from github ()
 set -l fisherman ~/.config/fish/functions/fisher.fish
 if test -e $fisherman
