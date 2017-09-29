@@ -1,40 +1,10 @@
 #!/usr/bin/env fish
 
-# Set global variable for dotfiles root
-if test ! $DOTS
-  set -U DOTS ~/.dotfiles
-  echo "Set universal variable: DOTS > $DOTS"
-end
 
-function add_paths_file -d "Add paths from a file in bash or fish form."
-  # Expecting a file in the first argument (non-zero indexed)
-  set -l file $argv[1]
-  if string match -rq '.zsh$' $file
-    echo Found zsh file $file
-    # Adjust possible bash or zsh syntax issues here
-  end
-  echo Adding paths for this file: $file
-  for line in (cat $file)
-    add_path $line
-  end
-end
-
-function remove_duped_paths -d "Remove duplicate entries from the PATH variable"
-  # Remove duplicates in $PATH
-
-  # Remove duplicates in $fish_user_paths
-
-  # Remove duplicates *between* $PATH and $fish_user_paths
-end
-
-# Setup paths from path.zsh or path.fish files
-for path_file in (find -H $DOTS -maxdepth 2 -name "path.*sh")
-  echo "Adding this path file: $path_file"
-  add_paths_file $path_file
-end
 
 # Run install files for all files named 'install.sh'
-for file in (find -H $DOTS -maxdepth 2 -name "install.sh")
+for file in (find -H $DOTS -maxdepth 2 -name "install.*sh")
   # sh -c $file
   echo "About to install: $file"
+  # TODO: Handle both .fish and .sh files
 end
