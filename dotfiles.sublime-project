@@ -13,6 +13,10 @@
     {
       "name": "Paul's Dotfiles",
       "path": "~/code/dotfiles-paulirish"
+    },
+    {
+      "name": "Nisi's Dotfiles",
+      "path": "~/code/dotfiles-nisi"
     }
 	]
 }
