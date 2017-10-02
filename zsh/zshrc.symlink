@@ -33,6 +33,16 @@ do
   source $file
 done
 
+# zplug config
+export ZPLUG_LOADFILE=$DOTFILES/zsh/zplug.sh
+
+# only source zplug on initial load
+if [ -z ${RELOAD} ]; then
+    if ! [ type "zplug" > /dev/null 2>&1 ]; then
+        source ~/.zplug/init.zsh
+    fi
+fi
+
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
@@ -44,16 +54,6 @@ do
 done
 
 unset config_files
-
-# zplug config
-export ZPLUG_LOADFILE=$DOTFILES/zsh/zplug.sh
-
-# only source zplug on initial load
-if [ -z ${RELOAD} ]; then
-    if ! [ type "zplug" > /dev/null 2>&1 ]; then
-        source ~/.zplug/init.zsh
-    fi
-fi
 
 # Better history
 # Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
