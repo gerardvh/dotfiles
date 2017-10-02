@@ -5,15 +5,20 @@
 			"path": "."
 		},
     {
-      "path": "~/.config"
-    },
-    {
-      "name": "Paul's Dotfiles",
+      "name": "Paul Irish",
       "path": "~/code/dotfiles/paulirish"
     },
     {
-      "name": "Nisi's Dotfiles",
+      "name": "Nisi",
       "path": "~/code/dotfiles/nisi"
+    },
+    {
+      "name": "OMZ",
+      "path": "~/code/dotfiles/omz"
+    },
+    {
+      "name": "Parth",
+      "path": "~/code/dotfiles/parth"
     }
 	]
 }
