@@ -1,72 +1,79 @@
+# heavily inspired by the wonderful pure theme
+# https://github.com/sindresorhus/pure
+
+# needed to get things like current git branch
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git # You can add hg too if needed: `git hg`
+zstyle ':vcs_info:git*' use-simple true
+zstyle ':vcs_info:git*' max-exports 2
+zstyle ':vcs_info:git*' formats ' %b' 'x%R'
+zstyle ':vcs_info:git*' actionformats ' %b|%a' 'x%R'
+
 autoload colors && colors
-# cheers, @ehrenmurdick
-# http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
-
-if (( $+commands[git] ))
-then
-  git="$commands[git]"
-else
-  git="/usr/bin/git"
-fi
-
-git_branch() {
-  echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
-}
 
 git_dirty() {
-  if $(! $git status -s &> /dev/null)
-  then
-    echo ""
-  else
-    if [[ $($git status --porcelain) == "" ]]
-    then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+    # check if we're in a git repo
+    command git rev-parse --is-inside-work-tree &>/dev/null || return
+
+    # check if it's dirty
+    command git diff --quiet --ignore-submodules HEAD &>/dev/null;
+    if [[ $? -eq 1 ]]; then
+        echo "%F{red}✗%f"
     else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+        echo "%F{green}✔%f"
     fi
-  fi
 }
 
-git_prompt_info () {
- ref=$($git symbolic-ref HEAD 2>/dev/null) || return
-# echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
- echo "${ref#refs/heads/}"
+upstream_branch() {
+    remote=$(git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)) 2>/dev/null
+    if [[ $remote != "" ]]; then
+        echo "%F{241}($remote)%f"
+    fi
 }
 
-# This assumes that you always have an origin named `origin`, and that you only
-# care about one specific origin. If this is not the case, you might want to use
-# `$git cherry -v @{upstream}` instead.
-need_push () {
-  if [ $($git rev-parse --is-inside-work-tree 2>/dev/null) ]
-  then
-    number=$($git cherry -v origin/$(git symbolic-ref --short HEAD) 2>/dev/null | wc -l | bc)
+# get the status of the current branch and it's remote
+# If there are changes upstream, display a ⇣
+# If there are changes that have been committed but not yet pushed, display a ⇡
+git_arrows() {
+    # do nothing if there is no upstream configured
+    command git rev-parse --abbrev-ref @'{u}' &>/dev/null || return
 
-    if [[ $number == 0 ]]
-    then
-      echo " "
+    local arrows=""
+    local status
+    arrow_status="$(command git rev-list --left-right --count HEAD...@'{u}' 2>/dev/null)"
+
+    # do nothing if the command failed
+    (( !$? )) || return
+
+    # split on tabs
+    arrow_status=(${(ps:\t:)arrow_status})
+    local left=${arrow_status[1]} right=${arrow_status[2]}
+
+    (( ${right:-0} > 0 )) && arrows+="%F{011}⇣%f"
+    (( ${left:-0} > 0 )) && arrows+="%F{012}⇡%f"
+
+    echo $arrows
+}
+
+
+# indicate a job (for example, vim) has been backgrounded
+# If there is a job in the background, display a ✱
+suspended_jobs() {
+    local sj
+    sj=$(jobs 2>/dev/null | tail -n 1)
+    if [[ $sj == "" ]]; then
+        echo ""
     else
-      echo " with %{$fg_bold[magenta]%}$number unpushed%{$reset_color%}"
+        echo "%{$FG[208]%}✱%f"
     fi
-  fi
-}
-
-directory_name() {
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
-}
-
-battery_status() {
-  if [[ $(sysctl -n hw.model) == *"Book"* ]]
-  then
-    $ZSH/bin/battery-status
-  fi
-}
-
-export PROMPT=$'\n$(battery_status)in $(directory_name) $(git_dirty)$(need_push)\n› '
-set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
 
 precmd() {
-  title "zsh" "%m" "%55<...<%~"
-  set_prompt
+    vcs_info
+    print -P '\n%F{6}%~'
 }
+
+PROMPT_SYMBOL='❯'
+
+export PROMPT='%(?.%F{207}.%F{160})$PROMPT_SYMBOL%f '
+export RPROMPT='`git_dirty`%F{241}$vcs_info_msg_0_%f`git_arrows``suspended_jobs`'
