@@ -17,7 +17,7 @@ brew "bash"
 brew "fish"
 brew "grc"
 brew "zsh"
-brew "zsh-syntax-highlighting"
+brew "zplug" # Plugin manager for zsh
 
 # Build Tools
 brew "cmake"
