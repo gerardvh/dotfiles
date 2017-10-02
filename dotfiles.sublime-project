@@ -5,18 +5,15 @@
 			"path": "."
 		},
     {
-      "path": "~/.local"
-    },
-    {
       "path": "~/.config"
     },
     {
       "name": "Paul's Dotfiles",
-      "path": "~/code/dotfiles-paulirish"
+      "path": "~/code/dotfiles/paulirish"
     },
     {
       "name": "Nisi's Dotfiles",
-      "path": "~/code/dotfiles-nisi"
+      "path": "~/code/dotfiles/nisi"
     }
 	]
 }
