@@ -3,41 +3,51 @@ tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
 
-brew "ack"
-brew "ant"
-brew "chromedriver"
-brew "cmake"
-brew "coreutils"
-brew "ctags"
-brew "fish"
+# Languages
 brew "go"
-brew "sqlite"
-brew "python3"
-brew "grc"
+brew "lua"
+brew "rust"
+cask "java"
 brew "groovy"
+brew "python"
+brew "python3"
+
+# Shells
+brew "bash"
+brew "fish"
+brew "grc"
+brew "zsh"
+brew "zsh-syntax-highlighting"
+
+# Build Tools
+brew "cmake"
+brew "ant"
 brew "heroku"
+brew "maven"
+cask "cargo"
+
+# Tools
+brew "ack"
+brew "ctags"
+brew "coreutils"
 brew "imagemagick"
 brew "iperf3"
 brew "jmeter"
-brew "lua"
 brew "mackup"
-brew "python"
-brew "macvim", args: ["with-override-system-vim"]
-brew "maven"
-brew "neovim"
-brew "phantomjs"
-brew "pkg-config"
-brew "qt"
-brew "redis", restart_service: true
-brew "roundup"
-brew "rust"
-brew "the_silver_searcher"
-brew "unrar"
 brew "watchman"
 brew "wget"
-brew "zsh-syntax-highlighting"
+brew "the_silver_searcher"
+brew "unrar"
+brew "sqlite"
 
-cask "java"
+# Text Editing
+brew "macvim", args: ["with-override-system-vim"]
+brew "neovim"
+
+# Browser Testing
+brew "chromedriver"
+brew "phantomjs"
+
+# Apps
 cask "1password"
-cask "cargo"
 cask "transmission"
