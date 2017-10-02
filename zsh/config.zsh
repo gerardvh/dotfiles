@@ -5,9 +5,6 @@ fpath=($DOTFILES/functions $fpath)
 
 autoload -U $DOTFILES/functions/*(:t)
 
-export EDITOR='nvim'
-export GIT_EDITOR='nvim'
-
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
