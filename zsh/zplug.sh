@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Have zplug manage itself
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
 # Find all the 'zplugs.sh' files and source them for relevant plugins
 for plug_file ($DOTFILES/**/zplugs.sh) source $plug_file
 
