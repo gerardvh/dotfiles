@@ -17,7 +17,6 @@ brew "bash"
 brew "fish"
 brew "grc"
 brew "zsh"
-brew "zplug" # Plugin manager for zsh
 
 # Build Tools
 brew "cmake"
@@ -40,6 +39,8 @@ brew "wget"
 brew "the_silver_searcher"
 brew "unrar"
 brew "sqlite"
+brew "zplug" # Plugin manager for zsh
+brew "z"
 
 # Text Editing
 brew "macvim", args: ["with-override-system-vim"]
