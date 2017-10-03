@@ -73,7 +73,7 @@ highlight Type cterm=italic
 highlight Normal ctermbg=none
 
 set number                  " show line numbers
-" set relativenumber          " show relative line numbers
+set relativenumber          " show relative line numbers
 
 set wrap                    " turn on line wrapping
 set wrapmargin=8            " wrap lines when coming within n characters from side
@@ -95,7 +95,7 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 set backspace=indent,eol,start
 
 " Tab control
-set noexpandtab             " insert tabs rather than spaces for <Tab>
+set expandtab               " insert spaces rather than tabs for <Tab>
 set smarttab                " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
 set tabstop=4               " the visible width of tabs
 set softtabstop=4           " edit as if the tabs are 4 characters wide
@@ -148,6 +148,9 @@ if has('mouse')
 	set mouse=a
 	" set ttymouse=xterm2
 endif
+
+" Start Completion
+call deoplete#enable()
 
 " }}}
 
@@ -253,6 +256,23 @@ command! Rm call functions#Delete()
 command! RM call functions#Delete() <Bar> q!
 
 " }}}
+
+" Terminal mappings:
+tnoremap <Esc> <C-\><C-n>
+
+" Make Alt+{h, j, k, l} move around windows
+tnoremap <A-h> <C-\><C-N><C-w>h
+tnoremap <A-j> <C-\><C-N><C-w>j
+tnoremap <A-k> <C-\><C-N><C-w>k
+tnoremap <A-l> <C-\><C-N><C-w>l
+inoremap <A-h> <C-\><C-N><C-w>h
+inoremap <A-j> <C-\><C-N><C-w>j
+inoremap <A-k> <C-\><C-N><C-w>k
+inoremap <A-l> <C-\><C-N><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 
 " Section AutoGroups {{{
 " file type specific settings

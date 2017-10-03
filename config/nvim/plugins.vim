@@ -50,6 +50,12 @@ Plug 'vim-scripts/matchit.zip' " extended % matching
 Plug 'tpope/vim-sleuth' " detect indent style (tabs vs. spaces)
 Plug 'sickill/vim-pasta' " context-aware pasting
 
+" Completions
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Completion engine
+Plug 'fishbullet/deoplete-ruby' " ruby completion
+Plug 'zchee/deoplete-zsh' " zsh completion
+Plug 'Shougo/neco-vim' " completion source for multiple languages
+
 " html / templates
 Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript.jsx'] } " emmet support for vim - easily create markdup wth CSS-like syntax
 Plug 'gregsexton/MatchTag', { 'for': 'html' } " match tags in html, similar to paren support
