@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'thor'
+
+# Thor class for making aem do things on my machine.
+class Aem < Thor
+  desc 'start', "Starts up AEM author and publish containers with name 'aem'."
+  def start
+    puts 'Starting up aem containers...'
+    `docker-compose \
+        --file ~/.dotfiles/docker/local-aem.yml --project-name "aem" up -d`
+  end
+
+  desc 'stop', 'Stops running containers for author and publish.'
+  def stop
+    puts 'Stopping aem containers...'
+    `docker-compose \
+        --file ~/.dotfiles/docker/local-aem.yml --project-name "aem" down`
+  end
+
+  desc 'logs INSTANCE', 'View the tail of a log for a particular INSTANCE.'
+  def logs(instance)
+    puts 'Hello from logs'
+    puts "Instance: #{instance}"
+  end
+end
+
+Aem.start
