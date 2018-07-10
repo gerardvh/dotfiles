@@ -24,7 +24,6 @@ brew "cmake"
 brew "ant"
 brew "heroku"
 brew "maven"
-cask "cargo"
 
 # Tools
 brew "ack"
