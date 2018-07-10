@@ -2,15 +2,16 @@ tap "caskroom/cask"
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "caskroom/versions"
+tap "caskroom/fonts"
 
 # Languages
 brew "go"
 brew "lua"
 brew "rust"
-cask "java"
+cask "java8"
 brew "groovy"
 brew "python"
-brew "python3"
 
 # Shells
 brew "bash"
@@ -41,6 +42,9 @@ brew "unrar"
 brew "sqlite"
 brew "zplug" # Plugin manager for zsh
 brew "z"
+
+# Dependencies
+brew "libpq"
 
 # Text Editing
 brew "macvim", args: ["with-override-system-vim"]

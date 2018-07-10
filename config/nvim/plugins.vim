@@ -49,6 +49,16 @@ Plug 'AndrewRadev/splitjoin.vim' " single/multi line code handler: gS - split on
 Plug 'vim-scripts/matchit.zip' " extended % matching
 Plug 'tpope/vim-sleuth' " detect indent style (tabs vs. spaces)
 Plug 'sickill/vim-pasta' " context-aware pasting
+Plug 'tpope/vim-scriptease' " for finding documentation on vim stuff (use K while hilighting a thing in the init.vim)
+Plug 'airblade/vim-gitgutter' " gitgutter support in vim
+
+" Themes
+Plug 'ayu-theme/ayu-vim'
+
+" Ruby
+Plug 'tpope/vim-rails' " rails support and helpful commands
+Plug 'tpope/vim-rake' " rake support for vim
+Plug 'vim-ruby/vim-ruby'
 
 " Completions
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Completion engine

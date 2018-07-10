@@ -1,5 +1,6 @@
 # matches case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' matcher-list 'm:{A-Z}={a-z}'
 
 # match within words (not just at beginning of word)
 zstyle ':completion:*' matcher-list '+l:|=* r:|=*'
