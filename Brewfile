@@ -50,7 +50,7 @@ brew "macvim", args: ["with-override-system-vim"]
 brew "neovim"
 
 # Browser Testing
-brew "chromedriver"
+cask "chromedriver"
 brew "phantomjs"
 
 # Apps
