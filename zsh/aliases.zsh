@@ -1,4 +1,4 @@
-alias cls='clear' # Good 'ol Clear Screen command
+alias cls='clear'
 
 alias get='curl -OL'
 alias g='grep -i'
