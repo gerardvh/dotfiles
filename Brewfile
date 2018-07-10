@@ -54,7 +54,6 @@ cask "chromedriver"
 brew "phantomjs"
 
 # Apps
-cask "1password"
 cask "iterm2"
 cask "sublime-text"
 cask "transmission"
